@@ -2,7 +2,7 @@
 // -----------------------------------
 // Binary search
 
-function binaryComparator(candidate, target) {
+function defaultComparator(candidate, target) {
   if (target < candidate) {
     return -1
   } else if (target > candidate) {
@@ -31,7 +31,7 @@ function binarySearch(sortedList, target, low, high, comparator) {
 
 const search = {
 
-  binary(sortedList, target, comparator=binaryComparator) {
+  binary(sortedList, target, comparator=defaultComparator) {
     return binarySearch(sortedList, target, 0, sortedList.length-1, comparator)
   }
 }
