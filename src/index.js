@@ -33,10 +33,6 @@ const search = {
 
   binary(sortedList, target, comparator=binaryComparator) {
     return binarySearch(sortedList, target, 0, sortedList.length-1, comparator)
-  },
-
-  tween(sortedList, time, comparator=tweenComparator) {
-    return tweenSearch(sortedList, time, 0, sortedList.length - 1, comparator)
   }
 }
 
