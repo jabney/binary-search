@@ -5,13 +5,13 @@ const search = vk.search
 
 describe('binary search', function () {
   it('returns null for an empty list', function () {
-    const found = search.binary([], 1)
-    assert.equal(found, null)
+    const index = search.binary([], 1)
+    assert.equal(index, null)
   })
 
   it('returns null for target not in list', function () {
-    const found = search.binary([1, 2, 3, 4, 5, 6, 7], 8)
-    assert.equal(found, null)
+    const index = search.binary([1, 2, 3, 4, 5, 6, 7], 8)
+    assert.equal(index, null)
   })
 
   it('finds all targets in lists of length [1,100]', function () {
@@ -23,8 +23,8 @@ describe('binary search', function () {
       const list = _.range(0, size, skip)
 
       for (let find = 0; find < list.length; find += skip) {
-        const found = search.binary(list, find)
-        assert.equal(find, found)
+        const index = search.binary(list, find)
+        assert.equal(find, list[index])
       }
     }
   })
@@ -41,7 +41,7 @@ describe('binary search', function () {
       for (let find = 0; find < size; ++find) {
         let compares = 0
 
-        const found = search.binary(list, find, function (candidate, target) {
+        const index = search.binary(list, find, function (candidate, target) {
           maxCompares = Math.max(maxCompares, ++compares)
 
           if (target < candidate) {
@@ -53,7 +53,7 @@ describe('binary search', function () {
           }
         })
 
-        assert.equal(find, found, 'found the target value')
+        assert.equal(find, list[index], 'found the target value')
 
         assert(maxCompares <= Math.floor(Math.log2(size)) + 1,
           'maxCompares <= log2(list_size) + 1')

@@ -21,7 +21,7 @@ function binarySearch(sortedList, target, low, high, comparator) {
   const result = comparator(sortedList[mid], target)
 
   if (result === 0) {
-    return sortedList[mid]
+    return mid
   } else if (result < 0) {
     return binarySearch(sortedList, target, low, mid-1, comparator)
   } else {
